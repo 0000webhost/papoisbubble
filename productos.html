@@ -16,6 +16,10 @@
     <a href="mision-vision.html">Misión y Visión</a>
     <a href="aprende.html">Aprende</a>
     <a href="contacto.html">Contacto</a>
+    <button class="nav-cart" type="button" id="openCartButton" aria-label="Abrir carrito">
+      <span class="nav-cart-icon" aria-hidden="true">🛒</span>
+      <span class="nav-cart-count" id="cartCount">0</span>
+    </button>
   </nav>
 </header>
 
@@ -24,49 +28,221 @@
   <p>Jabones infantiles con formas divertidas, aromas suaves y colores llenos de magia.</p>
 
   <div class="cards">
-
     <div class="card">
-      <img src="img/jabon-leon.jpg" alt="Jabón León">
+      <img src="assets/soap-leon.svg" alt="Jabón León">
       <h3>Jabón León</h3>
       <p>Aroma: Avellana</p>
       <p class="precio">$70</p>
-      <a class="btn" href="#">Comprar</a>
+      <button class="btn btn-primary product-add" type="button" data-product="Jabón León" data-price="70">Agregar al carrito</button>
     </div>
 
     <div class="card">
-      <img src="img/jabon-tortuga.jpg" alt="Jabón Tortuga">
+      <img src="assets/soap-tortuga.svg" alt="Jabón Tortuga">
       <h3>Jabón Tortuga</h3>
       <p>Aroma: Mezcla suave</p>
       <p class="precio">$70</p>
-      <a class="btn" href="#">Comprar</a>
+      <button class="btn btn-primary product-add" type="button" data-product="Jabón Tortuga" data-price="70">Agregar al carrito</button>
     </div>
 
     <div class="card">
-      <img src="img/jabon-conejo.jpg" alt="Jabón Conejo">
+      <img src="assets/soap-conejo.svg" alt="Jabón Conejo">
       <h3>Jabón Conejo</h3>
       <p>Aroma: Avena/Miel</p>
       <p class="precio">$70</p>
-      <a class="btn" href="#">Comprar</a>
+      <button class="btn btn-primary product-add" type="button" data-product="Jabón Conejo" data-price="70">Agregar al carrito</button>
     </div>
 
     <div class="card">
-      <img src="img/jabon-pinguino.jpg" alt="Jabón Pingüino">
+      <img src="assets/soap-pinguino.svg" alt="Jabón Pingüino">
       <h3>Jabón Pingüino</h3>
       <p>Aroma: Almendra</p>
       <p class="precio">$70</p>
-      <a class="btn" href="#">Comprar</a>
+      <button class="btn btn-primary product-add" type="button" data-product="Jabón Pingüino" data-price="70">Agregar al carrito</button>
     </div>
 
     <div class="card">
-      <img src="img/paquete-burbu-kids.jpg" alt="Paquete Burbu Kids">
+      <img src="assets/soap-pack.svg" alt="Paquete Burbu Kids">
       <h3>Paquete Burbu Kids</h3>
       <p>Incluye 2 jabones</p>
       <p class="precio">$125</p>
-      <a class="btn" href="#">Comprar</a>
+      <button class="btn btn-primary product-add" type="button" data-product="Paquete Burbu Kids" data-price="125">Agregar al carrito</button>
     </div>
-
   </div>
 </section>
+
+<div class="cart-modal" id="cartModal" aria-hidden="true">
+  <div class="cart-backdrop" data-close-cart></div>
+  <div class="cart-dialog" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+    <button class="purchase-close" type="button" aria-label="Cerrar carrito" data-close-cart>×</button>
+    <div class="purchase-badge">Tu carrito</div>
+    <h2 id="cartTitle">Carrito de compra</h2>
+    <p class="purchase-copy">Los productos se agregan aquí primero. Finaliza la compra cuando estés listo.</p>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-summary">
+      <div>
+        <span>Artículos</span>
+        <strong id="cartItemsCount">0</strong>
+      </div>
+      <div>
+        <span>Total</span>
+        <strong id="cartTotal">$0</strong>
+      </div>
+    </div>
+    <div class="purchase-actions">
+      <button class="btn btn-secondary" type="button" data-close-cart>Seguir comprando</button>
+      <button class="btn btn-primary" type="button" id="checkoutButton">Finalizar compra</button>
+    </div>
+    <div class="purchase-status" id="cartStatus" aria-live="polite"></div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+  const cartModal = document.getElementById('cartModal');
+  const cartItemsContainer = document.getElementById('cartItems');
+  const cartCount = document.getElementById('cartCount');
+  const cartItemsCount = document.getElementById('cartItemsCount');
+  const cartTotal = document.getElementById('cartTotal');
+  const cartStatus = document.getElementById('cartStatus');
+  const checkoutButton = document.getElementById('checkoutButton');
+  const openCartButton = document.getElementById('openCartButton');
+  const addButtons = document.querySelectorAll('.product-add');
+  const closeCartButtons = document.querySelectorAll('[data-close-cart]');
+  const cart = [];
+
+  function formatCurrency(value) {
+    return '$' + value.toLocaleString('es-MX');
+  }
+
+  function openCart() {
+    cartModal.classList.add('is-open');
+    cartModal.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeCart() {
+    cartModal.classList.remove('is-open');
+    cartModal.setAttribute('aria-hidden', 'true');
+  }
+
+  function renderCart() {
+    const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
+    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+    cartCount.textContent = itemCount;
+    openCartButton.classList.toggle('has-items', itemCount > 0);
+    cartItemsCount.textContent = itemCount;
+    cartTotal.textContent = formatCurrency(total);
+
+    if (!cart.length) {
+      cartItemsContainer.innerHTML = '<div class="cart-empty">Todavía no agregaste productos.</div>';
+      return;
+    }
+
+    cartItemsContainer.innerHTML = cart.map((item, index) => `
+      <div class="cart-item">
+        <div>
+          <strong>${item.name}</strong>
+          <p>${formatCurrency(item.price)} c/u</p>
+        </div>
+        <div class="cart-item-controls">
+          <button type="button" class="cart-step" data-decrease="${index}">−</button>
+          <span>${item.quantity}</span>
+          <button type="button" class="cart-step" data-increase="${index}">+</button>
+          <button type="button" class="cart-remove" data-remove="${index}">Quitar</button>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function addToCart(name, price) {
+    const existingItem = cart.find((item) => item.name === name);
+
+    if (existingItem) {
+      existingItem.quantity += 1;
+    } else {
+      cart.push({ name, price, quantity: 1 });
+    }
+
+    cartStatus.textContent = `${name} agregado al carrito.`;
+    renderCart();
+    openCart();
+  }
+
+  addButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      addToCart(button.dataset.product, Number(button.dataset.price));
+    });
+  });
+
+  openCartButton.addEventListener('click', openCart);
+
+  closeCartButtons.forEach((button) => {
+    button.addEventListener('click', closeCart);
+  });
+
+  cartItemsContainer.addEventListener('click', (event) => {
+    const increaseIndex = event.target.dataset.increase;
+    const decreaseIndex = event.target.dataset.decrease;
+    const removeIndex = event.target.dataset.remove;
+
+    if (increaseIndex !== undefined) {
+      cart[Number(increaseIndex)].quantity += 1;
+      renderCart();
+    }
+
+    if (decreaseIndex !== undefined) {
+      const item = cart[Number(decreaseIndex)];
+      item.quantity -= 1;
+      if (item.quantity <= 0) {
+        cart.splice(Number(decreaseIndex), 1);
+      }
+      renderCart();
+    }
+
+    if (removeIndex !== undefined) {
+      cart.splice(Number(removeIndex), 1);
+      renderCart();
+    }
+  });
+
+  checkoutButton.addEventListener('click', () => {
+    if (!cart.length) {
+      Swal.fire({
+        title: 'Tu carrito está vacío',
+        text: 'Agrega al menos un producto para finalizar la compra.',
+        icon: 'info',
+        confirmButtonText: 'Entendido'
+      });
+      return;
+    }
+
+    const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
+    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+    Swal.fire({
+      title: 'Compra finalizada',
+      html: `
+        <p>Tu compra de <strong>${itemCount}</strong> artículos fue simulada correctamente.</p>
+        <p>Total: <strong>${formatCurrency(total)}</strong></p>
+      `,
+      icon: 'success',
+      confirmButtonText: 'Aceptar'
+    });
+
+    cart.length = 0;
+    cartStatus.textContent = 'Compra completada. Gracias por elegir Burbu Kids.';
+    renderCart();
+    closeCart();
+  });
+
+  cartModal.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closeCart();
+    }
+  });
+
+  renderCart();
+</script>
 
 <footer>
   <p>© 2026 Burbu Kids | Todos los derechos reservados</p>

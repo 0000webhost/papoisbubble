@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 720" role="img" aria-labelledby="title desc">
+  <title id="title">Burbu Kids hero illustration</title>
+  <desc id="desc">Pastel illustration with soap bubbles and friendly animal shapes.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#bff1ff"/>
+      <stop offset="100%" stop-color="#fff1b8"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="720" rx="40" fill="url(#bg)"/>
+  <circle cx="186" cy="164" r="72" fill="#fff" opacity=".55"/>
+  <circle cx="768" cy="132" r="48" fill="#fff" opacity=".55"/>
+  <circle cx="809" cy="276" r="86" fill="#fff" opacity=".38"/>
+  <circle cx="173" cy="522" r="104" fill="#fff" opacity=".3"/>
+  <rect x="190" y="292" width="580" height="240" rx="56" fill="#ffffff" opacity=".72"/>
+  <circle cx="338" cy="392" r="74" fill="#ff8fab"/>
+  <circle cx="487" cy="392" r="74" fill="#1ea7c7"/>
+  <circle cx="636" cy="392" r="74" fill="#ffd166"/>
+  <circle cx="316" cy="372" r="14" fill="#23465b"/>
+  <circle cx="360" cy="372" r="14" fill="#23465b"/>
+  <circle cx="468" cy="372" r="14" fill="#23465b"/>
+  <circle cx="512" cy="372" r="14" fill="#23465b"/>
+  <circle cx="617" cy="372" r="14" fill="#23465b"/>
+  <circle cx="661" cy="372" r="14" fill="#23465b"/>
+  <path d="M311 418c12 24 33 36 53 36s41-12 53-36" fill="none" stroke="#23465b" stroke-width="10" stroke-linecap="round"/>
+  <path d="M461 418c12 24 33 36 53 36s41-12 53-36" fill="none" stroke="#23465b" stroke-width="10" stroke-linecap="round"/>
+  <path d="M610 418c12 24 33 36 53 36s41-12 53-36" fill="none" stroke="#23465b" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="214" cy="220" r="22" fill="#fff" opacity=".7"/>
+  <circle cx="742" cy="200" r="18" fill="#fff" opacity=".7"/>
+</svg>

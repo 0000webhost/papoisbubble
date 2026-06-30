@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" role="img" aria-labelledby="title desc">
+  <title id="title">Soap rabbit placeholder</title>
+  <desc id="desc">Playful rabbit illustration in soft pastel colors.</desc>
+  <rect width="640" height="640" rx="36" fill="#fff7cf"/>
+  <circle cx="320" cy="334" r="150" fill="#ffb7c5"/>
+  <ellipse cx="270" cy="188" rx="38" ry="112" fill="#ffffff"/>
+  <ellipse cx="370" cy="188" rx="38" ry="112" fill="#ffffff"/>
+  <circle cx="276" cy="320" r="12" fill="#23465b"/>
+  <circle cx="364" cy="320" r="12" fill="#23465b"/>
+  <path d="M306 364c10 14 18 18 14 18s4-4 14-18" fill="none" stroke="#23465b" stroke-width="9" stroke-linecap="round"/>
+  <circle cx="320" cy="440" r="72" fill="#ffd166" opacity=".7"/>
+</svg>

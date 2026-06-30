@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" role="img" aria-labelledby="title desc">
+  <title id="title">Learn koala placeholder</title>
+  <desc id="desc">Soft koala illustration for the learning cards.</desc>
+  <rect width="640" height="640" rx="36" fill="#edf7ff"/>
+  <circle cx="320" cy="332" r="156" fill="#8fb6d9"/>
+  <circle cx="248" cy="236" r="56" fill="#c7d9ea"/>
+  <circle cx="392" cy="236" r="56" fill="#c7d9ea"/>
+  <circle cx="282" cy="320" r="12" fill="#23465b"/>
+  <circle cx="358" cy="320" r="12" fill="#23465b"/>
+  <path d="M286 364c18 22 48 22 66 0" fill="none" stroke="#23465b" stroke-width="9" stroke-linecap="round"/>
+</svg>

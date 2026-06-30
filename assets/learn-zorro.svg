@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" role="img" aria-labelledby="title desc">
+  <title id="title">Learn fox placeholder</title>
+  <desc id="desc">Friendly fox illustration for educational content.</desc>
+  <rect width="640" height="640" rx="36" fill="#fff2df"/>
+  <path d="M320 140 460 300 320 500 180 300z" fill="#ff8fab"/>
+  <path d="M320 190 418 308 320 440 222 308z" fill="#ffffff"/>
+  <circle cx="282" cy="302" r="12" fill="#23465b"/>
+  <circle cx="358" cy="302" r="12" fill="#23465b"/>
+  <path d="M286 344c16 18 48 18 64 0" fill="none" stroke="#23465b" stroke-width="9" stroke-linecap="round"/>
+</svg>

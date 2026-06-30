@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" role="img" aria-labelledby="title desc">
+  <title id="title">Soap turtle placeholder</title>
+  <desc id="desc">Soft turtle illustration with a shell pattern and rounded edges.</desc>
+  <rect width="640" height="640" rx="36" fill="#e6fbff"/>
+  <ellipse cx="320" cy="340" rx="170" ry="130" fill="#1ea7c7"/>
+  <ellipse cx="320" cy="340" rx="112" ry="84" fill="#bdf3ff"/>
+  <circle cx="212" cy="282" r="48" fill="#ffd166"/>
+  <circle cx="434" cy="282" r="48" fill="#ffd166"/>
+  <circle cx="212" cy="418" r="48" fill="#ffd166"/>
+  <circle cx="434" cy="418" r="48" fill="#ffd166"/>
+  <circle cx="248" cy="334" r="12" fill="#23465b"/>
+  <circle cx="392" cy="334" r="12" fill="#23465b"/>
+  <path d="M288 372c16 18 48 18 64 0" fill="none" stroke="#23465b" stroke-width="9" stroke-linecap="round"/>
+</svg>

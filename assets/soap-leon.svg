@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" role="img" aria-labelledby="title desc">
+  <title id="title">Soap lion placeholder</title>
+  <desc id="desc">Warm rounded lion illustration used as a replaceable asset.</desc>
+  <rect width="640" height="640" rx="36" fill="#fff4e2"/>
+  <circle cx="320" cy="300" r="156" fill="#ffd166"/>
+  <circle cx="320" cy="300" r="118" fill="#fff8ef"/>
+  <circle cx="268" cy="286" r="14" fill="#23465b"/>
+  <circle cx="372" cy="286" r="14" fill="#23465b"/>
+  <path d="M286 346c16 24 36 36 34 36s18-12 34-36" fill="none" stroke="#23465b" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="320" cy="452" r="86" fill="#ff8fab" opacity=".7"/>
+  <path d="M240 160c20 26 44 38 80 38s60-12 80-38" fill="none" stroke="#d89200" stroke-width="28" stroke-linecap="round"/>
+</svg>

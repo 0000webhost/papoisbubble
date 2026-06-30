@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" role="img" aria-labelledby="title desc">
+  <title id="title">Learn turtle placeholder</title>
+  <desc id="desc">Educational turtle illustration with a simple shell.</desc>
+  <rect width="640" height="640" rx="36" fill="#e9fff9"/>
+  <ellipse cx="320" cy="340" rx="170" ry="126" fill="#3eb489"/>
+  <ellipse cx="320" cy="340" rx="112" ry="80" fill="#bdf7e5"/>
+  <circle cx="220" cy="286" r="42" fill="#ffd166"/>
+  <circle cx="420" cy="286" r="42" fill="#ffd166"/>
+  <circle cx="220" cy="414" r="42" fill="#ffd166"/>
+  <circle cx="420" cy="414" r="42" fill="#ffd166"/>
+  <circle cx="252" cy="334" r="12" fill="#23465b"/>
+  <circle cx="388" cy="334" r="12" fill="#23465b"/>
+</svg>

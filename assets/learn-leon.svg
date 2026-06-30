@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" role="img" aria-labelledby="title desc">
+  <title id="title">Learn lion placeholder</title>
+  <desc id="desc">Bold lion illustration for the learning cards.</desc>
+  <rect width="640" height="640" rx="36" fill="#fff1db"/>
+  <circle cx="320" cy="316" r="168" fill="#ffb15e"/>
+  <circle cx="320" cy="316" r="118" fill="#fff8ef"/>
+  <circle cx="268" cy="304" r="12" fill="#23465b"/>
+  <circle cx="372" cy="304" r="12" fill="#23465b"/>
+  <path d="M290 350c14 18 46 18 60 0" fill="none" stroke="#23465b" stroke-width="9" stroke-linecap="round"/>
+</svg>
